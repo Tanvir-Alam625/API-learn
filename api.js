@@ -9,6 +9,10 @@ function users(){
 }
 
 function showData(data){
-    const id = data[0].id;
-    console.log(id);
+    const ul = document.getElementById('users');
+    for(const user of data){
+        const li = document.createElement('li');
+        li.innerText = `ID: ${user.id} name: ${user.name}  Email: ${user.email}`;
+        ul.appendChild(li);
+    }
 }
