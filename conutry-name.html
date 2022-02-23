@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Show the All Country Name</title>
+ </head>
+ <body>
+     <h2>In Wold All Country Name</h2>
+     <div id="country">
+         <button onclick="onLoadData()">click</button>
+     </div>
+     <script>
+         const onLoadData = ()=>{
+             fetch('https://restcountries.com/v3.1/all')
+             .then(res => res.json())
+             .then(data => getData(data))
+         }
+         
+         const getData = data =>{
+             const container = document.getElementById('country');
+            data.forEach(countryName => {
+                const head = document.createElement('h1');
+                head.innerText = ` Country Name: ${countryName.name.common}`;
+                // console.log();
+                container.appendChild(head);
+            });
+         }
+     </script>
+     
+ </body>
+ </html>
